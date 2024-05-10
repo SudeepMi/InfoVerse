@@ -16,7 +16,7 @@ const page = ({ params }) => {
                     subMenu.submenu && <div className='mt-5 p-5 flex justify-around'>
                         {
                             subMenu.submenu.map((v,k)=>{
-                            return <Link href={`/${params.page}/${v.replace(" ","-").toLowerCase()}`}>
+                            return <Link href={`/${params.page}/${v.replace(" ","-").toLowerCase()}`} key={k}>
                                 <div key={k}className='border w-fit px-10 py-5'>Explore {v}</div>
                             </Link>
                         })
