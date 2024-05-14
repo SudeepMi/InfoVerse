@@ -17,6 +17,7 @@
 }
 
 body {
+  color-scheme: light dark;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -29,5 +30,38 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .home__container {
+    .link:hover {
+      background-color: #fff8;
+    }
+    div {
+      border: 1px solid rgba(201, 201, 201, 0.6);
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .link:hover {
+    background-color: #fff8;
+  }
+  .explore__container {
+    border: 1px solid rgba(201, 201, 201, 0.6);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .dog-breed__container {
+    color: #fff;
+  }
+  .title {
+    color: #000;
+    
+  }
+  h2 {
+    color: #fff;
   }
 }
