@@ -18,7 +18,7 @@ const index = ({ data, sub }) => {
             return (
               <div
                 key={index}
-                className="rounded-md shadow-md border border-[#2e2c2cf7] grid align-top items-start"
+                className="col-span-1 rounded-md shadow-md border border-[#2e2c2cf7] grid align-top items-start h-max"
               >
                 <h2 className="text-lg font-bold mb-2 w-full bg-[#2e2c2cf7] p-2 tracking-wider">
                   {breed}
@@ -31,25 +31,28 @@ const index = ({ data, sub }) => {
                     className="object-contain"
                   />
                 </div>
-                <div className="flex gap-2 flex-wrap">
-                  {data[breed].map(async (subBreed, subIndex) => {
-                    let image = await getDogImage(breed, `${subBreed}`);
-                    return (
-                      <div key={subIndex} className="">
-                        <p className="bg-[#2e2c2cf7] p-2">
-                          {subBreed} {breed}
-                        </p>
-                        <Image
-                          src={image}
-                          width={200}
-                          height={200}
-                          className="object-cover"
-                          alt={subBreed}
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
+                <details className="px-2 py-1">
+                  <summary>View Sub Breeds</summary>
+                  <div className="flex gap-2  overflow-x-auto bg-red-100">
+                    {data[breed].map(async (subBreed, subIndex) => {
+                      let image = await getDogImage(breed, `${subBreed}`);
+                      return (
+                        <div key={subIndex} className="w-[200px] h-[150px]">
+                          <p className="bg-[#2e2c2cf7] p-2">
+                            {subBreed} {breed}
+                          </p>
+                          <Image
+                            src={image}
+                            width={200}
+                            height={200}
+                            className="object-cover"
+                            alt={subBreed}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </details>
               </div>
             );
           })}
